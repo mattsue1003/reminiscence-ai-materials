@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>懷舊教材百寶箱</title>
-<meta name="description" content="臺北醫學大學 回憶促進辦公室｜懷舊回憶志工引導員 教材準備與賦能工作坊。影片、照片、音樂、AI 提問與臉書教案資源一次整理。">
+<meta name="description" content="臺北醫學大學 回憶促進辦公室｜懷舊回憶志工引導員 教材準備與賦能工作坊。影片、照片、音樂、AI 提問與教案資源庫一次整理。">
 <meta property="og:title" content="懷舊教材百寶箱｜回憶促進引導員賦能工作坊">
-<meta property="og:description" content="影片、照片、音樂、AI 提問、臉書教案：準備一堂懷舊課需要的資源，一次帶走。">
+<meta property="og:description" content="影片、照片、音樂、AI 提問、教案資源庫：準備一堂懷舊課需要的資源，一次帶走。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -224,6 +224,13 @@ h3{font-size:22px; font-weight:900}
 .res.big .qr{width:180px; height:180px; padding:8px}
 @media (max-width:640px){ .res.big{flex-direction:column; text-align:center} .res.big .name{justify-content:center} .res.big .qr{width:160px; height:160px} }
 
+/* ===== 教案資源庫 ===== */
+.lib-h{font-size:20px; margin:14px 0 8px; color:var(--secondary)}
+.lib .res{min-height:0; padding:12px}
+.lib .res .name{font-size:17px}
+.lib .res .desc{font-size:14px}
+.lib .res .qr{width:78px; height:78px; padding:5px}
+
 /* ===== 破冰問答 ===== */
 .quiz{text-align:center}
 .quiz h2::after{margin-left:auto; margin-right:auto}
@@ -243,6 +250,12 @@ h3{font-size:22px; font-weight:900}
 .reveal-box b{font-size:24px; color:#16a34a}
 .reveal-box p{margin:.4em 0 0; color:var(--muted)}
 .reveal-box .ask{color:var(--ink); font-weight:700}
+.quiz .opts,.quiz .show-ans{display:none}
+.quiz.hinted .opts{display:grid; animation:pop .35s ease}
+.quiz.hinted .show-ans{display:inline-flex}
+.quiz.hinted .hint-btn{display:none}
+.hint-btn{margin-top:6px; font-size:20px; padding:14px 30px}
+@keyframes pop{from{opacity:0; transform:translateY(12px) scale(.97)} to{opacity:1; transform:none}}
 .quiz.done .reveal-box{display:block}
 .quiz.done .show-ans{display:none}
 .show-ans{margin-top:22px; color:var(--primary)}
@@ -306,7 +319,7 @@ h3{font-size:22px; font-weight:900}
     <div>
       <span class="kicker"><i class="fa-solid fa-heart"></i> 臺北醫學大學 回憶促進辦公室</span>
       <h1>懷舊教材<span class="hl">百寶箱</span></h1>
-      <p class="lead" style="color:#e6ecf8">回憶促進引導員｜教材準備與賦能工作坊<br>影片・照片・音樂・AI 提問・臉書教案，一次帶走</p>
+      <p class="lead" style="color:#e6ecf8">回憶促進引導員｜教材準備與賦能工作坊<br>影片・照片・音樂・AI 提問・教案資源庫，一次帶走</p>
       <div class="meta">
         <div><i class="fa-regular fa-calendar"></i> 2026 年 11 月 5 日（四）18:00 – 19:00</div>
         <div><i class="fa-solid fa-location-dot"></i> 臺北醫學大學（台北市信義區吳興街 250 號）</div>
@@ -354,7 +367,7 @@ h3{font-size:22px; font-weight:900}
 <!-- 破冰：金曲猜歌 -->
 <section class="slide dark" id="ice" data-title="破冰：台灣金曲猜歌">
   <div class="wrap">
-    <span class="kicker"><i class="fa-solid fa-music"></i> 破冰 Ice-breaker</span>
+    <span class="kicker"><i class="fa-solid fa-music"></i> 破冰 Ice-breaker ①</span>
     <h2>先唱一首，<span class="hl">再開始上課</span></h2>
     <div class="grid g2" style="align-items:center">
       <div>
@@ -369,6 +382,33 @@ h3{font-size:22px; font-weight:900}
         <div class="info">
           <div class="name"><i class="fa-solid fa-compact-disc"></i>台灣金曲猜歌</div>
           <div class="desc">從 50 年代唱到 2026：15 組歌單共 300 首，國語、台語、鄧麗君、鳳飛飛特輯。</div>
+          <div class="go">開啟遊戲 <i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+        </div>
+        <div class="qr"></div>
+      </a>
+    </div>
+  </div>
+  <span class="pagenum"></span>
+</section>
+
+<!-- 破冰：看圖片猜老藝人 -->
+<section class="slide dark" id="ice2" data-title="破冰：看圖片猜老藝人">
+  <div class="wrap">
+    <span class="kicker"><i class="fa-solid fa-image"></i> 破冰 Ice-breaker ②</span>
+    <h2>看圖片，<span class="hl">猜老藝人</span></h2>
+    <div class="grid g2" style="align-items:center">
+      <div>
+        <p class="lead">唱完歌，換用眼睛回憶。一張老照片，常常就能讓長輩說出「這個我知道！」</p>
+        <ol class="steps">
+          <li>按「全螢幕」投影，一次出一位藝人</li>
+          <li>先讓大家猜，再按「公布答案」</li>
+          <li>按「💬 一起聊聊」追問：「你看過他哪部戲、聽過哪首歌？」</li>
+        </ol>
+      </div>
+      <a class="res big" href="https://mattsue1003.github.io/oldstar-geuss-game/" style="color:var(--ink)">
+        <div class="info">
+          <div class="name"><i class="fa-solid fa-star"></i>老藝人懷舊猜猜看</div>
+          <div class="desc">30 位臺灣老藝人的看圖猜謎，附圖鑑與聊天問句，團體一起玩。</div>
           <div class="go">開啟遊戲 <i class="fa-solid fa-arrow-up-right-from-square"></i></div>
         </div>
         <div class="qr"></div>
@@ -393,6 +433,7 @@ h3{font-size:22px; font-weight:900}
       <p>「台灣歌王」文夏，代表作〈媽媽請你也保重〉。太太文香後來也一起登台，夫妻檔唱了大半輩子。</p>
       <p class="ask">💬 追問長輩：「你們那個年代，幾歲結婚算正常？」</p>
     </div>
+    <button class="btn hint-btn"><i class="fa-solid fa-lightbulb"></i> 提示</button>
     <button class="btn ghost show-ans"><i class="fa-solid fa-eye"></i> 公布答案</button>
   </div>
   <span class="pagenum"></span>
@@ -413,6 +454,7 @@ h3{font-size:22px; font-weight:900}
       <p>「寶島低音歌王」洪一峰，代表作〈舊情綿綿〉。三個兒子洪榮宏、洪敬堯、洪榮良，都走上音樂創作與演唱的路。</p>
       <p class="ask">💬 追問長輩：「你的孩子或孫子，有誰遺傳到你的才藝？」</p>
     </div>
+    <button class="btn hint-btn"><i class="fa-solid fa-lightbulb"></i> 提示</button>
     <button class="btn ghost show-ans"><i class="fa-solid fa-eye"></i> 公布答案</button>
   </div>
   <span class="pagenum"></span>
@@ -429,7 +471,7 @@ h3{font-size:22px; font-weight:900}
       <a class="card" href="#s9" style="text-decoration:none"><h3><i class="fa-regular fa-image"></i>2. 照片素材</h3><p>老照片資料庫、AI 修圖與黑白轉換</p></a>
       <a class="card" href="#s12" style="text-decoration:none"><h3><i class="fa-solid fa-music"></i>3. 音樂</h3><p>免費找老歌、AI 做動態歌詞帶唱</p></a>
       <a class="card" href="#s15" style="text-decoration:none"><h3><i class="fa-solid fa-wand-magic-sparkles"></i>4. AI 提問</h3><p>Gemini、ChatGPT、Chrome，用「說的」也可以</p></a>
-      <a class="card" href="#s19" style="text-decoration:none"><h3><i class="fa-brands fa-facebook"></i>5. 臉書教案</h3><p>猜歌、猜人、猜食物，現成教案直接用</p></a>
+      <a class="card" href="#s19" style="text-decoration:none"><h3><i class="fa-solid fa-box-open"></i>5. 教案資源庫</h3><p>21 個免費互動教案，猜歌、猜人、台灣好味道</p></a>
       <a class="card" href="#s21" style="text-decoration:none"><h3><i class="fa-solid fa-list-check"></i>實作</h3><p>當場備好你的第一堂課</p></a>
     </div>
   </div>
@@ -752,32 +794,79 @@ h3{font-size:22px; font-weight:900}
   <span class="pagenum"></span>
 </section>
 
-<!-- 19 章節：臉書教案 -->
-<section class="slide dark chapter" id="s19" data-title="⑤ 臉書教案">
+<!-- 19 章節：教案資源庫 -->
+<section class="slide dark chapter" id="s19" data-title="⑤ 教案資源庫">
   <div class="wrap">
     <div class="section-no">05</div>
     <span class="kicker">PART 5</span>
-    <h2>臉書現成教案，拿來就用</h2>
-    <p class="lead">「鍾孟修 職能治療師」粉專分享的長輩互動教案：猜一猜、聊一聊、唱一唱。</p>
-    <a class="btn" data-href="__FB__" target="_blank" rel="noopener" style="margin-top:16px"><i class="fa-brands fa-facebook"></i> 前往鍾孟修 職能治療師粉專</a>
+    <h2>教案資源庫，拿來就用</h2>
+    <p class="lead">「鍾孟修 職能治療師」設計的 21 個免費互動教案：猜歌、猜人、猜動植物、懷舊資料庫、台灣好味道。點開或掃描就能直接帶活動。</p>
+    <a class="btn" data-href="__FB__" target="_blank" rel="noopener" style="margin-top:16px"><i class="fa-brands fa-facebook"></i> 追蹤粉專，新教案先看到</a>
   </div>
   <span class="pagenum"></span>
 </section>
 
-<!-- 20 教案卡 -->
-<section class="slide" id="s20" data-title="教案主題">
+<!-- 教案庫：猜歌・唱歌 -->
+<section class="slide" id="lib1" data-title="教案庫：猜歌・唱歌">
   <div class="wrap">
-    <span class="kicker"><i class="fa-solid fa-gamepad"></i> 教案主題</span>
-    <h2>猜一猜，<span class="hl">記憶就動起來</span></h2>
-    <div class="grid g4">
-      <div class="card lesson"><span class="emoji">🎵</span><h3>金曲猜歌</h3><ol><li>放前奏 10 秒</li><li>猜歌名、歌手</li><li>聊：當時在做什麼？</li></ol></div>
-      <div class="card lesson"><span class="emoji">🌟</span><h3>猜老藝人</h3><ol><li>先給年輕時的照片</li><li>提示：代表作</li><li>聊：最喜歡哪齣戲？</li></ol></div>
-      <div class="card lesson"><span class="emoji">🏛️</span><h3>猜歷史人物</h3><ol><li>照片＋一句名言</li><li>提示：年代、事蹟</li><li>挑歷史人物，避開當下爭議</li></ol></div>
-      <div class="card lesson"><span class="emoji">🐃</span><h3>猜動物</h3><ol><li>局部放大照片</li><li>學叫聲當提示</li><li>聊：小時候養過什麼？</li></ol></div>
-      <div class="card lesson"><span class="emoji">🍉</span><h3>猜水果</h3><ol><li>剖面照、局部照</li><li>提示：季節、產地</li><li>聊：以前一斤多少錢？</li></ol></div>
-      <div class="card lesson"><span class="emoji">🍜</span><h3>台灣好味道</h3><ol><li>小吃照片</li><li>猜名稱、猜做法</li><li>聊：哪一家最好吃？</li></ol></div>
-      <div class="card lesson"><span class="emoji">🗂️</span><h3>懷舊資料庫</h3><ol><li>老物件／老街照片</li><li>猜用途、猜地點</li><li>聊：家裡也有嗎？</li></ol></div>
-      <div class="card lesson" style="border:2px dashed var(--secondary)"><span class="emoji">✍️</span><h3>你的主題</h3><ol><li>挑一個長輩愛聊的</li><li>用 AI 出題</li><li>做成自己的教案</li></ol></div>
+    <span class="kicker"><i class="fa-solid fa-music"></i> 教案資源庫 ①</span>
+    <h2>聽前奏，<span class="hl">歌就回來了</span></h2>
+    <h3 class="lib-h">猜歌</h3>
+    <div class="grid g4 lib">
+      <a class="res" href="https://mattsue1003.github.io/pop-song-guess/"><div class="info"><div class="name">台灣金曲猜歌</div><div class="desc">50 年代唱到 2026，15 組歌單共 300 首。</div></div><div class="qr"></div></a>
+      <a class="res" href="https://mattsue1003.github.io/old-song-guess/"><div class="info"><div class="name">金曲猜歌 20 題</div><div class="desc">懷舊音樂團體用的猜歌互動遊戲。</div></div><div class="qr"></div></a>
+      <a class="res" href="https://mattsue1003.github.io/song-lyrics-guess/"><div class="info"><div class="name">看歌詞猜老歌</div><div class="desc">台灣懷舊老歌金曲 20 首，看歌詞猜歌名。</div></div><div class="qr"></div></a>
+      <a class="res" href="https://mattsue1003.github.io/hakka-old-music-guess/"><div class="info"><div class="name">客家金曲猜歌</div><div class="desc">20 題客家老歌，客家長輩最有感。</div></div><div class="qr"></div></a>
+      <a class="res" href="https://mattsue1003.github.io/japan-old-music-guess/"><div class="info"><div class="name">日本演歌猜歌</div><div class="desc">20 題日本演歌，日語世代的回憶。</div></div><div class="qr"></div></a>
+    </div>
+    <h3 class="lib-h">唱歌・律動</h3>
+    <div class="grid g4 lib">
+      <a class="res" href="https://mattsue1003.github.io/oldsongdata/"><div class="info"><div class="name">長者回憶高峰金曲 200</div><div class="desc">懷舊點唱機，長輩年輕時最常聽的 200 首歌。</div></div><div class="qr"></div></a>
+      <a class="res" href="https://mattsue1003.github.io/oldsongdance/"><div class="info"><div class="name">老歌律動影片資料庫</div><div class="desc">150 首老歌配律動影片，暖身、團體都適用。</div></div><div class="qr"></div></a>
+    </div>
+  </div>
+  <span class="pagenum"></span>
+</section>
+
+<!-- 教案庫：猜人物・猜動植物 -->
+<section class="slide" id="lib2" data-title="教案庫：猜人物・猜動植物">
+  <div class="wrap">
+    <span class="kicker"><i class="fa-solid fa-user-group"></i> 教案資源庫 ②</span>
+    <h2>看照片，<span class="hl">猜猜他是誰</span></h2>
+    <h3 class="lib-h">猜人物</h3>
+    <div class="grid g4 lib">
+      <a class="res" href="https://mattsue1003.github.io/oldpicguess/"><div class="info"><div class="name">看照片猜藝人</div><div class="desc">臺灣資深藝人懷舊教案，照片引發回憶與對話。</div></div><div class="qr"></div></a>
+      <a class="res" href="https://mattsue1003.github.io/oldstar-geuss-game/"><div class="info"><div class="name">老藝人懷舊猜猜看</div><div class="desc">30 位老藝人的團體猜謎遊戲。</div></div><div class="qr"></div></a>
+      <a class="res" href="https://mattsue1003.github.io/bingooldstar/"><div class="info"><div class="name">經典老藝人賓果</div><div class="desc">猜老藝人結合賓果，全場一起玩。</div></div><div class="qr"></div></a>
+      <a class="res" href="https://mattsue1003.github.io/political-photo/"><div class="info"><div class="name">台灣政治人物懷舊猜謎</div><div class="desc">猜猜他是誰？台灣政治人物懷舊版。</div></div><div class="qr"></div></a>
+    </div>
+    <h3 class="lib-h">猜動物・猜植物</h3>
+    <div class="grid g4 lib">
+      <a class="res" href="https://mattsue1003.github.io/animal-guessing/"><div class="info"><div class="name">動物猜猜看</div><div class="desc">看圖猜動物的互動教室。</div></div><div class="qr"></div></a>
+      <a class="res" href="https://mattsue1003.github.io/guess-bird/"><div class="info"><div class="name">台灣鳥朋友</div><div class="desc">認識台灣常見鳥類的猜鳥活動。</div></div><div class="qr"></div></a>
+      <a class="res" href="https://mattsue1003.github.io/flowers-guess/"><div class="info"><div class="name">花花世界・猜花</div><div class="desc">看圖猜花、三選一、花卉冷知識，可列印圖卡。</div></div><div class="qr"></div></a>
+    </div>
+  </div>
+  <span class="pagenum"></span>
+</section>
+
+<!-- 教案庫：懷舊・台灣好味道 -->
+<section class="slide" id="lib3" data-title="教案庫：懷舊・台灣好味道">
+  <div class="wrap">
+    <span class="kicker"><i class="fa-solid fa-box-archive"></i> 教案資源庫 ③</span>
+    <h2>懷舊資料庫・<span class="hl">台灣好味道</span></h2>
+    <h3 class="lib-h">懷舊資料庫</h3>
+    <div class="grid g4 lib">
+      <a class="res" href="https://mattsue1003.github.io/old-story-interaction/"><div class="info"><div class="name">老時代・懷舊活動資料庫</div><div class="desc">55 則懷舊主題，附年代、台語說法與帶領問句。</div></div><div class="qr"></div></a>
+      <a class="res" href="https://mattsue1003.github.io/old-toys-game-rules/"><div class="info"><div class="name">長者懷舊童玩資料庫</div><div class="desc">尪仔標、彈珠、跳格子等童玩的玩法與帶法。</div></div><div class="qr"></div></a>
+      <a class="res" href="https://mattsue1003.github.io/commu-card-senior/"><div class="info"><div class="name">老寶貝話匣子</div><div class="desc">生命故事對談卡，打開長輩的話匣子。</div></div><div class="qr"></div></a>
+      <a class="res" href="https://mattsue1003.github.io/taiwan-story-cards/"><div class="info"><div class="name">台灣重要事件互動圖卡</div><div class="desc">以圖卡回顧台灣大事，引導分享當年回憶。</div></div><div class="qr"></div></a>
+    </div>
+    <h3 class="lib-h">台灣好味道・走透透</h3>
+    <div class="grid g4 lib">
+      <a class="res" href="https://mattsue1003.github.io/taiwan-taste-island/"><div class="info"><div class="name">台灣好味島</div><div class="desc">22 縣市、263 種名產的 3D 美食地圖。</div></div><div class="qr"></div></a>
+      <a class="res" href="https://mattsue1003.github.io/taiwanfood2/"><div class="info"><div class="name">台灣美食地圖・縣市小吃</div><div class="desc">依縣市探索小吃，聊家鄉味。</div></div><div class="qr"></div></a>
+      <a class="res" href="https://mattsue1003.github.io/landguess/"><div class="info"><div class="name">台灣景點猜謎遊戲</div><div class="desc">看景點猜地名，帶長輩環島回憶。</div></div><div class="qr"></div></a>
     </div>
     <div class="note">🔑 <b>教案三步驟</b>：<b>看</b>（照片／影片）→ <b>猜</b>（給提示，猜對大家拍手）→ <b>聊</b>（從答案延伸到自己的故事）。猜不出來沒關係，聊天才是重點。</div>
   </div>
@@ -963,14 +1052,15 @@ document.querySelectorAll("#checklist input").forEach((c, i) => {
   c.onchange = () => { try { localStorage.setItem("chk" + i, c.checked ? "1" : "0"); } catch (e) {} };
 });
 
-// 破冰問答：點選項或「公布答案」都會揭曉
+// 破冰問答：先按「提示」才出現選項；點選項或「公布答案」都會揭曉
 document.querySelectorAll(".quiz").forEach(q => {
   const reveal = () => {
-    q.classList.add("done");
+    q.classList.add("hinted", "done");
     q.querySelectorAll(".opt").forEach(o => o.classList.add(o.dataset.ok ? "right" : "wrong"));
   };
   q.querySelectorAll(".opt").forEach(o => o.addEventListener("click", reveal));
   q.querySelector(".show-ans").addEventListener("click", reveal);
+  q.querySelector(".hint-btn").addEventListener("click", () => q.classList.add("hinted"));
 });
 
 // 動態歌詞示範（〈兩隻老虎〉傳統兒歌）
