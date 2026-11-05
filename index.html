@@ -231,6 +231,37 @@ h3{font-size:22px; font-weight:900}
 .lib .res .desc{font-size:14px}
 .lib .res .qr{width:78px; height:78px; padding:5px}
 
+/* ===== 暖身翻牌 ===== */
+.flips{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px; max-width:900px; margin:0 auto}
+.flips.two{grid-template-columns:repeat(2,minmax(0,1fr)); max-width:720px; margin-top:10px}
+.flip{min-height:200px; border-radius:22px; border:3px solid var(--primary); background:var(--primary); color:#fff; font:inherit; cursor:pointer;
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; padding:16px; box-shadow:var(--shadow); transition:all .25s}
+.flip .ch{font-size:clamp(64px,9vw,110px); font-weight:900; line-height:1}
+.flip .ch.sm{font-size:clamp(24px,3vw,34px); line-height:1.3}
+.flip .ans{display:none; font-size:clamp(24px,3vw,36px); font-weight:900; color:var(--gold); line-height:1.3}
+.flip:not(.open)::after{content:"點我翻開"; font-size:14px; color:#9fb0d0}
+.flip.open{background:var(--card); color:var(--primary); border-color:var(--secondary)}
+.flip.open .ch{color:var(--secondary)}
+.flip.open .ans{display:block; color:var(--primary); animation:pop .35s ease}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .flip.open,:root:not([data-theme="light"]) .flip.open .ans{color:#fff} }
+:root[data-theme="dark"] .flip.open,:root[data-theme="dark"] .flip.open .ans{color:#fff}
+.flip-all{margin-top:22px; color:var(--primary)}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .flip-all{color:#fff} }
+:root[data-theme="dark"] .flip-all{color:#fff}
+.quiz.done .flip-all{display:none}
+@media (max-width:640px){ .flips{grid-template-columns:repeat(2,minmax(0,1fr))} .flip{min-height:150px} }
+
+/* ===== 四月望雨 影片＋歌詞 ===== */
+.video{position:relative; aspect-ratio:16/9; border-radius:16px; overflow:hidden; background:#000; box-shadow:var(--shadow)}
+.video iframe{position:absolute; inset:0; width:100%; height:100%; border:0}
+.ktabs{display:flex; flex-wrap:wrap; justify-content:center; gap:8px; margin-bottom:16px}
+.ktabs button{border:1.5px solid rgba(255,255,255,.3); background:transparent; color:#cfd8ea; border-radius:999px; padding:6px 16px; font:inherit; font-weight:700; cursor:pointer}
+.ktabs button.on{background:var(--gold); border-color:var(--gold); color:#0a1430}
+.kedit{border:0; background:rgba(255,255,255,.12); color:#fff; border-radius:999px; padding:8px 16px; font:inherit; font-size:15px; cursor:pointer}
+.keditor{display:none; margin-top:14px}
+.keditor.open{display:block}
+.keditor textarea{width:100%; border-radius:12px; border:0; padding:12px; font:inherit; font-size:17px; line-height:1.6}
+
 /* ===== 破冰問答 ===== */
 .quiz{text-align:center}
 .quiz h2::after{margin-left:auto; margin-right:auto}
@@ -673,30 +704,55 @@ h3{font-size:22px; font-weight:900}
   <span class="pagenum"></span>
 </section>
 
-<!-- 14 動態歌詞 -->
-<section class="slide" id="s14" data-title="Gemini 做動態歌詞">
+<!-- 暖身問答：四月望雨 1 -->
+<section class="slide" id="w1" data-title="暖身：四月望雨是哪四首？">
+  <div class="wrap quiz">
+    <span class="kicker"><i class="fa-solid fa-circle-question"></i> 唱歌前暖身 第 1 題</span>
+    <h2>「四月望雨」是<span class="hl">哪四首歌？</span></h2>
+    <p class="q">每個字代表一首歌，請大家直接說出來！<br><small style="color:var(--muted);font-size:.6em">點一個字，翻開答案</small></p>
+    <div class="flips">
+      <button class="flip"><span class="ch">四</span><span class="ans">四季紅</span></button>
+      <button class="flip"><span class="ch">月</span><span class="ans">月夜愁</span></button>
+      <button class="flip"><span class="ch">望</span><span class="ans">望春風</span></button>
+      <button class="flip"><span class="ch">雨</span><span class="ans">雨夜花</span></button>
+    </div>
+    <button class="btn ghost flip-all"><i class="fa-solid fa-eye"></i> 全部翻開</button>
+  </div>
+  <span class="pagenum"></span>
+</section>
+
+<!-- 暖身問答：四月望雨 2 -->
+<section class="slide" id="w2" data-title="暖身：誰寫的？哪裡人？">
+  <div class="wrap quiz">
+    <span class="kicker"><i class="fa-solid fa-circle-question"></i> 唱歌前暖身 第 2 題</span>
+    <h2>這四首歌是<span class="hl">誰作曲的？</span></h2>
+    <div class="flips two">
+      <button class="flip"><span class="ch sm">作曲者是誰？</span><span class="ans">鄧雨賢</span></button>
+      <button class="flip"><span class="ch sm">他是哪裡人？</span><span class="ans">桃園龍潭<br>客家人</span></button>
+    </div>
+    <div class="reveal-box">
+      <b>「台灣歌謠之父」鄧雨賢</b>
+      <p>1906 年出生於桃園龍潭的客家家庭，幼年隨家人搬到台北。四首歌的歌詞分別由李臨秋（望春風、四季紅）、周添旺（雨夜花、月夜愁）填寫。</p>
+      <p class="ask">💬 追問長輩：「這四首，你最會唱哪一首？第一次聽到是在哪裡？」</p>
+    </div>
+    <button class="btn ghost flip-all"><i class="fa-solid fa-eye"></i> 全部翻開</button>
+  </div>
+  <span class="pagenum"></span>
+</section>
+
+<!-- 動態歌詞示範：四月望雨 -->
+<section class="slide" id="k4" data-title="動態歌詞示範：四月望雨">
   <div class="wrap">
-    <span class="kicker"><i class="fa-solid fa-microphone-lines"></i> Gemini Canvas</span>
-    <h2>請 Gemini 寫程式，做<span class="hl">動態歌詞</span></h2>
+    <span class="kicker"><i class="fa-solid fa-microphone-lines"></i> 動態歌詞示範</span>
+    <h2>一起唱《<span class="hl">四月望雨</span>》</h2>
     <div class="grid g2">
       <div>
-        <ol class="steps">
-          <li>開 Gemini，在輸入框下方點選 <b>「Canvas」</b></li>
-          <li>貼上下面這段話，最後換成你要唱的歌詞</li>
-          <li>畫面會出現可以按的網頁（電腦在右邊、手機點「預覽」），按「開始」試試看</li>
-          <li>點「分享」取得連結，上課投影就能用</li>
-        </ol>
-        <div class="prompt"><span class="lbl">複製這段給 Gemini</span><button class="copy">複製</button>請幫我寫一個單一 HTML 網頁，做給長輩用的卡拉OK動態歌詞：
-1. 字非常大、深色背景、黃色字，投影也看得清楚
-2. 一次顯示目前這一句和下一句，唱到的字會變色
-3. 下方有大按鈕：開始、暫停、上一句、下一句
-4. 可以調整速度快慢
-歌詞如下：
-（貼上歌詞，一句一行）</div>
+        <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/5FirsoVeOpc" title="蔡幸娟 鄧雨賢作品演唱 四月望雨" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
+        <a class="res" href="https://www.youtube.com/watch?v=5FirsoVeOpc" style="margin-top:14px"><div class="info"><div class="name"><i class="fa-brands fa-youtube"></i>蔡幸娟 演唱《四月望雨》</div><div class="desc">四季紅、月夜愁、望春風、雨夜花，13 分鐘組曲。</div></div><div class="qr"></div></a>
       </div>
       <div>
         <div class="karaoke" id="karaoke">
-          <div style="font-size:14px;color:#9fb0d0;margin-bottom:10px">▶ 示範成品（兒歌〈兩隻老虎〉）</div>
+          <div class="ktabs" id="kTabs"></div>
           <div class="line" id="kLine"></div>
           <div class="line next" id="kNext"></div>
           <div class="ctrl">
@@ -704,9 +760,43 @@ h3{font-size:22px; font-weight:900}
             <button class="main" id="kPlay"><i class="fa-solid fa-play"></i> 開始</button>
             <button id="kNextBtn" aria-label="下一句"><i class="fa-solid fa-forward-step"></i></button>
           </div>
-          <div style="margin-top:14px"><label>速度 <input type="range" id="kSpeed" min="0.6" max="1.6" step="0.1" value="1"></label></div>
+          <div style="margin-top:14px; display:flex; flex-wrap:wrap; gap:14px; justify-content:center; align-items:center">
+            <label>速度 <input type="range" id="kSpeed" min="0.4" max="1.6" step="0.1" value="0.7"></label>
+            <button class="kedit" id="kEdit"><i class="fa-solid fa-pen"></i> 貼上歌詞</button>
+          </div>
+          <div class="keditor" id="kEditor">
+            <textarea id="kText" rows="8" placeholder="把這首歌的歌詞貼在這裡，一句一行"></textarea>
+            <div class="ctrl"><button class="main" id="kSave">儲存</button><button id="kCancel">取消</button></div>
+          </div>
         </div>
-        <p style="font-size:15px; color:var(--muted)">💡 歌詞請自己打或從唱片官方取得；網路歌詞網站的內容有著作權，只在課堂使用、不要再公開散布。</p>
+        <p style="font-size:15px; color:var(--muted)">🔒 歌詞有著作權，所以沒有放在網頁上。請在<b>上課用的電腦</b>按「貼上歌詞」，歌詞只會存在這台電腦的瀏覽器裡。</p>
+      </div>
+    </div>
+  </div>
+  <span class="pagenum"></span>
+</section>
+
+<!-- 14 動態歌詞：自己做 -->
+<section class="slide" id="s14" data-title="Gemini 做動態歌詞">
+  <div class="wrap">
+    <span class="kicker"><i class="fa-solid fa-microphone-lines"></i> Gemini Canvas</span>
+    <h2>自己做：請 Gemini 寫<span class="hl">動態歌詞</span></h2>
+    <div class="grid g2">
+      <ol class="steps">
+        <li>開 Gemini，在輸入框下方點選 <b>「Canvas」</b></li>
+        <li>貼上右邊這段話，最後換成你要唱的歌詞</li>
+        <li>畫面會出現可以按的網頁（電腦在右邊、手機點「預覽」），按「開始」試試看</li>
+        <li>點「分享」取得連結，上課投影就能用</li>
+      </ol>
+      <div>
+        <div class="prompt"><span class="lbl">複製這段給 Gemini</span><button class="copy">複製</button>請幫我寫一個單一 HTML 網頁，做給長輩用的卡拉OK動態歌詞：
+1. 字非常大、深色背景、黃色字，投影也看得清楚
+2. 一次顯示目前這一句和下一句，唱到的字會變色
+3. 下方有大按鈕：開始、暫停、上一句、下一句
+4. 可以調整速度快慢
+歌詞如下：
+（貼上歌詞，一句一行）</div>
+        <p style="font-size:15px; color:var(--muted)">💡 歌詞請自己打或從唱片官方取得；有著作權的歌詞只在課堂使用，不要公開散布。</p>
       </div>
     </div>
   </div>
@@ -1054,6 +1144,7 @@ document.querySelectorAll("#checklist input").forEach((c, i) => {
 
 // 破冰問答：先按「提示」才出現選項；點選項或「公布答案」都會揭曉
 document.querySelectorAll(".quiz").forEach(q => {
+  if (!q.querySelector(".hint-btn")) return;
   const reveal = () => {
     q.classList.add("hinted", "done");
     q.querySelectorAll(".opt").forEach(o => o.classList.add(o.dataset.ok ? "right" : "wrong"));
@@ -1063,12 +1154,34 @@ document.querySelectorAll(".quiz").forEach(q => {
   q.querySelector(".hint-btn").addEventListener("click", () => q.classList.add("hinted"));
 });
 
-// 動態歌詞示範（〈兩隻老虎〉傳統兒歌）
-const LYRICS = ["兩隻老虎 兩隻老虎", "跑得快 跑得快", "一隻沒有耳朵", "一隻沒有尾巴", "真奇怪 真奇怪"];
+// 暖身翻牌
+document.querySelectorAll(".quiz").forEach(q => {
+  const flips = q.querySelectorAll(".flip");
+  if (!flips.length) return;
+  const check = () => { if ([...flips].every(f => f.classList.contains("open"))) q.classList.add("done"); };
+  flips.forEach(f => f.addEventListener("click", () => { f.classList.add("open"); check(); }));
+  q.querySelector(".flip-all").addEventListener("click", () => { flips.forEach(f => f.classList.add("open")); check(); });
+});
+
+// 動態歌詞示範：《四月望雨》（歌詞由講師在自己電腦貼上，只存在本機瀏覽器）
+const SONGS = ["四季紅", "月夜愁", "望春風", "雨夜花"];
+let song = 0, LYRICS = [];
 const kLine = document.getElementById("kLine"), kNext = document.getElementById("kNext"), kPlay = document.getElementById("kPlay");
+const kTabs = document.getElementById("kTabs"), kEditor = document.getElementById("kEditor"), kText = document.getElementById("kText");
+const lyricKey = i => "lyrics-" + SONGS[i];
+function loadSong(i) {
+  song = i; stop(); li = 0; ci = 0;
+  let saved = "";
+  try { saved = localStorage.getItem(lyricKey(i)) || ""; } catch (e) {}
+  LYRICS = saved.split("\n").map(s => s.trim()).filter(Boolean);
+  if (!LYRICS.length) LYRICS = ["〈" + SONGS[i] + "〉", "按下方「貼上歌詞」", "一句一行，貼好就能開始唱"];
+  kTabs.querySelectorAll("button").forEach((b, j) => b.classList.toggle("on", j === i));
+  renderLine();
+}
+SONGS.forEach((s, i) => { const b = document.createElement("button"); b.textContent = s; b.onclick = () => loadSong(i); kTabs.appendChild(b); });
 let li = 0, ci = 0, timer = null;
 function renderLine() {
-  kLine.innerHTML = [...LYRICS[li]].map((ch, i) => `<span class="${i < ci ? "sung" : ""}">${ch}</span>`).join("");
+  kLine.replaceChildren(...[...LYRICS[li]].map((ch, i) => { const s = document.createElement("span"); s.textContent = ch; if (i < ci) s.className = "sung"; return s; }));
   kNext.textContent = LYRICS[li + 1] || "🎉 唱完了！再來一次？";
 }
 function tick() {
@@ -1083,7 +1196,18 @@ kPlay.onclick = () => { if (timer) { stop(); } else { if (li === LYRICS.length -
 document.getElementById("kPrev").onclick = () => { li = Math.max(0, li - 1); ci = 0; renderLine(); };
 document.getElementById("kNextBtn").onclick = () => { li = Math.min(LYRICS.length - 1, li + 1); ci = 0; renderLine(); };
 document.getElementById("kSpeed").oninput = () => { if (timer) play(); };
-renderLine();
+document.getElementById("kEdit").onclick = () => {
+  stop();
+  try { kText.value = localStorage.getItem(lyricKey(song)) || ""; } catch (e) { kText.value = ""; }
+  kText.placeholder = "把〈" + SONGS[song] + "〉的歌詞貼在這裡，一句一行";
+  kEditor.classList.add("open"); kText.focus();
+};
+document.getElementById("kCancel").onclick = () => kEditor.classList.remove("open");
+document.getElementById("kSave").onclick = () => {
+  try { localStorage.setItem(lyricKey(song), kText.value); } catch (e) {}
+  kEditor.classList.remove("open"); loadSong(song);
+};
+loadSong(0);
 </script>
 </body>
 </html>
