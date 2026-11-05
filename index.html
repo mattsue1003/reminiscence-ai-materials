@@ -158,10 +158,17 @@ h3{font-size:22px; font-weight:900}
 
 /* ===== 講師 ===== */
 .bio{display:grid; grid-template-columns:280px 1fr; gap:36px; align-items:center}
-.avatar{width:100%; aspect-ratio:1; border-radius:28px; background:linear-gradient(135deg,var(--primary),var(--primary-2)); color:#fff;
-  display:grid; place-items:center; font-size:110px; font-weight:900; overflow:hidden; box-shadow:var(--shadow); border:6px solid #fff}
-.avatar img{width:100%; height:100%; object-fit:cover}
-.bio ul{padding-left:1.2em; margin:.4em 0}
+.avatar{width:100%; aspect-ratio:4/5; border-radius:24px; background:linear-gradient(135deg,var(--primary),var(--primary-2)); color:#fff;
+  display:grid; place-items:center; font-size:110px; font-weight:900; overflow:hidden; box-shadow:var(--shadow); border:6px solid #fff;
+  outline:2px solid var(--secondary); outline-offset:8px; position:relative}
+.avatar img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:62% 30%}
+.roles{list-style:none; padding:0; margin:.4em 0 0; border-top:1px solid var(--line)}
+.roles li{padding:9px 0 9px 22px; border-bottom:1px solid var(--line); position:relative; line-height:1.5}
+.roles li::before{content:""; position:absolute; left:4px; top:17px; width:8px; height:8px; border-radius:50%; background:var(--secondary)}
+.tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:14px}
+.tags span{font-size:14px; font-weight:700; padding:3px 12px; border-radius:999px; background:rgba(0,32,96,.08); color:var(--primary)}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .tags span{background:rgba(255,255,255,.1); color:#fff} }
+:root[data-theme="dark"] .tags span{background:rgba(255,255,255,.1); color:#fff}
 .follow{display:flex; gap:16px; align-items:center; margin-top:20px; background:var(--card); border:2px dashed var(--secondary); border-radius:18px; padding:16px}
 .follow .qr{width:110px; height:110px}
 .btn{display:inline-flex; align-items:center; gap:8px; background:var(--secondary); color:#fff; text-decoration:none; font-weight:900;
@@ -271,7 +278,7 @@ h3{font-size:22px; font-weight:900}
       <div class="meta">
         <div><i class="fa-regular fa-calendar"></i> 2026 年 11 月 5 日（四）18:00 – 19:00</div>
         <div><i class="fa-solid fa-location-dot"></i> 臺北醫學大學（台北市信義區吳興街 250 號）</div>
-        <div><i class="fa-solid fa-user"></i> 講師：鍾孟修 職能治療師（愛迪樂）</div>
+        <div><i class="fa-solid fa-user"></i> 講師：鍾孟修 職能治療師</div>
       </div>
     </div>
     <div class="share">
@@ -288,20 +295,23 @@ h3{font-size:22px; font-weight:900}
   <div class="wrap bio">
     <div class="avatar" id="avatar">鍾</div>
     <div>
-      <span class="kicker"><i class="fa-solid fa-user-doctor"></i> 今天陪大家的是</span>
+      <span class="kicker"><i class="fa-solid fa-user-doctor"></i> 講師介紹</span>
       <h2>鍾孟修 <span class="hl">職能治療師</span></h2>
-      <ul>
-        <li>愛迪樂有限公司 創辦人暨執行長</li>
-        <li>愛迪樂居家職能治療所 所長</li>
-        <li>長庚大學 職能治療學系</li>
-        <li>2017 年起推動「樂活健腦巴士」，走進新北偏鄉社區做認知促進</li>
+      <ul class="roles">
+        <li>愛迪樂有限公司 執行長｜愛迪樂居家職能治療所 所長</li>
+        <li>社團法人台灣生活復能健康促進協會 副理事長</li>
+        <li>中華高齡專業照護訓練協會 理事</li>
+        <li>《讓你健康不失智》作者（商周出版，2025）</li>
+        <li>Homeseen 失智症桌遊 共同創辦人</li>
+        <li>社區大學講師；ICOPE 評估員、照顧者與長照專業人員培訓講師</li>
       </ul>
+      <div class="tags"><span>失智症</span><span>復能</span><span>健康促進</span><span>居家照護</span><span>體智能</span><span>長照</span></div>
       <div class="follow">
-        <div class="qr" data-qr="__FB__" data-label="追蹤愛迪樂粉專"></div>
+        <div class="qr" data-qr="__FB__" data-label="鍾孟修 職能治療師 粉絲專頁"></div>
         <div>
-          <b style="font-size:20px">每週都有新的長輩互動教案</b>
-          <p style="margin:.2em 0 .8em;color:var(--muted)">金曲猜歌、猜老藝人、台灣好味道……掃描追蹤粉專，上課直接拿來用！</p>
-          <a class="btn" data-href="__FB__" target="_blank" rel="noopener"><i class="fa-brands fa-facebook"></i> 追蹤愛迪樂粉專</a>
+          <b style="font-size:20px">加入「鍾孟修 職能治療師」粉絲專頁</b>
+          <p style="margin:.2em 0 .8em;color:var(--muted)">失智照護、復能活動、懷舊與認知教案，新的免費教案與工具都會先在粉專分享。掃描按讚追蹤，課後也能繼續交流。</p>
+          <a class="btn" data-href="__FB__" target="_blank" rel="noopener"><i class="fa-brands fa-facebook"></i> 前往粉絲專頁</a>
         </div>
       </div>
     </div>
@@ -649,8 +659,8 @@ h3{font-size:22px; font-weight:900}
     <div class="section-no">05</div>
     <span class="kicker">PART 5</span>
     <h2>臉書現成教案，拿來就用</h2>
-    <p class="lead">愛迪樂粉專每週發布的長輩互動教案：猜一猜、聊一聊、唱一唱。</p>
-    <a class="btn" data-href="__FB__" target="_blank" rel="noopener" style="margin-top:16px"><i class="fa-brands fa-facebook"></i> 前往愛迪樂粉專</a>
+    <p class="lead">「鍾孟修 職能治療師」粉專分享的長輩互動教案：猜一猜、聊一聊、唱一唱。</p>
+    <a class="btn" data-href="__FB__" target="_blank" rel="noopener" style="margin-top:16px"><i class="fa-brands fa-facebook"></i> 前往鍾孟修 職能治療師粉專</a>
   </div>
   <span class="pagenum"></span>
 </section>
@@ -711,7 +721,7 @@ h3{font-size:22px; font-weight:900}
     <h2 style="display:inline-block">一起成為可以<span class="hl">一起變老</span>的朋友</h2>
     <p class="lead" style="margin:0 auto 24px">追蹤粉專，每週拿到新教案；掃簡報，今天的連結全部帶回家。</p>
     <div class="grid g3" style="max-width:900px; margin:0 auto; text-align:left">
-      <a class="res" data-href="__FB__"><div class="info"><div class="name"><i class="fa-brands fa-facebook"></i>愛迪樂粉專</div><div class="desc">每週新教案</div></div><div class="qr"></div></a>
+      <a class="res" data-href="__FB__"><div class="info"><div class="name"><i class="fa-brands fa-facebook"></i>鍾孟修 職能治療師 粉專</div><div class="desc">新教案與工具</div></div><div class="qr"></div></a>
       <a class="res" data-href="__SELF__"><div class="info"><div class="name"><i class="fa-solid fa-display"></i>本次簡報</div><div class="desc">所有連結帶回家</div></div><div class="qr"></div></a>
       <a class="res" href="https://reminiscencetmu-boop.github.io/reminiscence-homepage/"><div class="info"><div class="name"><i class="fa-solid fa-people-group"></i>回憶促進計劃</div><div class="desc">臺北醫學大學</div></div><div class="qr"></div></a>
     </div>
@@ -742,7 +752,7 @@ h3{font-size:22px; font-weight:900}
 <script>
 /* ===== 設定：講師粉專網址、照片、簡報網址 ===== */
 const CONFIG = {
-  FB_URL: "https://www.facebook.com/search/top?q=%E6%84%9B%E8%BF%AA%E6%A8%82",
+  FB_URL: "https://www.facebook.com/profile.php?id=100063748491881",
   PHOTO: "photo.jpg",
   SELF_URL: "https://mattsue1003.github.io/reminiscence-ai-materials/"
 };
