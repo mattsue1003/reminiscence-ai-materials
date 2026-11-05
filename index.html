@@ -218,6 +218,38 @@ h3{font-size:22px; font-weight:900}
 .lesson .emoji{font-size:40px; line-height:1}
 .lesson ol{margin:.2em 0 0; padding-left:1.2em; color:var(--muted); font-size:15.5px}
 
+.res.big{padding:24px; gap:20px}
+.res.big .name{font-size:28px}
+.res.big .desc{font-size:17px}
+.res.big .qr{width:180px; height:180px; padding:8px}
+@media (max-width:640px){ .res.big{flex-direction:column; text-align:center} .res.big .name{justify-content:center} .res.big .qr{width:160px; height:160px} }
+
+/* ===== 破冰問答 ===== */
+.quiz{text-align:center}
+.quiz h2::after{margin-left:auto; margin-right:auto}
+.quiz .q{font-size:clamp(22px,3.2vw,34px); font-weight:700; line-height:1.6; max-width:28em; margin:0 auto 26px}
+.quiz .q b{color:var(--secondary)}
+.opts{display:grid; grid-template-columns:1fr 1fr; gap:18px; max-width:760px; margin:0 auto}
+.opt{display:flex; align-items:center; justify-content:center; gap:14px; min-height:110px; padding:16px; border-radius:20px; cursor:pointer;
+  border:3px solid var(--line); background:var(--card); color:var(--ink); font:inherit; font-size:clamp(26px,3.6vw,40px); font-weight:900; box-shadow:var(--shadow); transition:all .2s}
+.opt span{width:52px; height:52px; border-radius:50%; background:var(--primary); color:#fff; display:grid; place-items:center; font-size:26px; flex:none}
+.opt:hover{border-color:var(--primary)}
+.opt.right{border-color:#16a34a; background:#ecfdf3; color:#14532d}
+.opt.right span{background:#16a34a}
+.opt.right::after{content:"⭕"}
+.opt.wrong{opacity:.45}
+.reveal-box{display:none; max-width:760px; margin:22px auto 0; text-align:left; background:var(--card); border:1px solid var(--line); border-left:8px solid #16a34a;
+  border-radius:16px; padding:18px 20px; box-shadow:var(--shadow)}
+.reveal-box b{font-size:24px; color:#16a34a}
+.reveal-box p{margin:.4em 0 0; color:var(--muted)}
+.reveal-box .ask{color:var(--ink); font-weight:700}
+.quiz.done .reveal-box{display:block}
+.quiz.done .show-ans{display:none}
+.show-ans{margin-top:22px; color:var(--primary)}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .show-ans{color:#fff} }
+:root[data-theme="dark"] .show-ans{color:#fff}
+@media (max-width:640px){ .opts{grid-template-columns:1fr} .opt{min-height:84px} }
+
 /* ===== 檢核清單 ===== */
 .check{display:grid; gap:10px}
 .check label{display:flex; gap:14px; align-items:center; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px 16px; cursor:pointer; font-size:18px}
@@ -315,6 +347,73 @@ h3{font-size:22px; font-weight:900}
         </div>
       </div>
     </div>
+  </div>
+  <span class="pagenum"></span>
+</section>
+
+<!-- 破冰：金曲猜歌 -->
+<section class="slide dark" id="ice" data-title="破冰：台灣金曲猜歌">
+  <div class="wrap">
+    <span class="kicker"><i class="fa-solid fa-music"></i> 破冰 Ice-breaker</span>
+    <h2>先唱一首，<span class="hl">再開始上課</span></h2>
+    <div class="grid g2" style="align-items:center">
+      <div>
+        <p class="lead">一聽到前奏，那個年代的畫面就回來了。今天先用自己的耳朵體驗，回去帶長輩時，同一套題目就能直接用。</p>
+        <ol class="steps">
+          <li>選一組歌單（每組 20 首），聽前奏分組搶答</li>
+          <li>追問一句：「這首歌讓你想起什麼？」</li>
+          <li>帶長輩時選台語、鄧麗君、鳳飛飛特輯，不比快，跟著哼就算答對</li>
+        </ol>
+      </div>
+      <a class="res big" href="https://mattsue1003.github.io/pop-song-guess/" style="color:var(--ink)">
+        <div class="info">
+          <div class="name"><i class="fa-solid fa-compact-disc"></i>台灣金曲猜歌</div>
+          <div class="desc">從 50 年代唱到 2026：15 組歌單共 300 首，國語、台語、鄧麗君、鳳飛飛特輯。</div>
+          <div class="go">開啟遊戲 <i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+        </div>
+        <div class="qr"></div>
+      </a>
+    </div>
+  </div>
+  <span class="pagenum"></span>
+</section>
+
+<!-- 破冰問答 1 -->
+<section class="slide" id="q1" data-title="猜猜看：歌王是誰？">
+  <div class="wrap quiz">
+    <span class="kicker"><i class="fa-solid fa-circle-question"></i> 猜猜看 第 1 題</span>
+    <h2>這位藝人<span class="hl">是誰？</span></h2>
+    <p class="q">他跟太太相差 <b>25 歲</b>，太太才 <b>16、17 歲</b>時，他就把她娶回家。</p>
+    <div class="opts">
+      <button class="opt" data-ok="1"><span>A</span>文夏</button>
+      <button class="opt"><span>B</span>葉啟田</button>
+    </div>
+    <div class="reveal-box">
+      <b>答案：A　文夏</b>
+      <p>「台灣歌王」文夏，代表作〈媽媽請你也保重〉。太太文香後來也一起登台，夫妻檔唱了大半輩子。</p>
+      <p class="ask">💬 追問長輩：「你們那個年代，幾歲結婚算正常？」</p>
+    </div>
+    <button class="btn ghost show-ans"><i class="fa-solid fa-eye"></i> 公布答案</button>
+  </div>
+  <span class="pagenum"></span>
+</section>
+
+<!-- 破冰問答 2 -->
+<section class="slide" id="q2" data-title="猜猜看：音樂世家">
+  <div class="wrap quiz">
+    <span class="kicker"><i class="fa-solid fa-circle-question"></i> 猜猜看 第 2 題</span>
+    <h2>這位藝人<span class="hl">是誰？</span></h2>
+    <p class="q">他有 <b>三個孩子</b>，三個孩子在 <b>音樂和藝術</b> 上都有很好的發展。</p>
+    <div class="opts">
+      <button class="opt"><span>A</span>郭金發</button>
+      <button class="opt" data-ok="1"><span>B</span>洪一峰</button>
+    </div>
+    <div class="reveal-box">
+      <b>答案：B　洪一峰</b>
+      <p>「寶島低音歌王」洪一峰，代表作〈舊情綿綿〉。三個兒子洪榮宏、洪敬堯、洪榮良，都走上音樂創作與演唱的路。</p>
+      <p class="ask">💬 追問長輩：「你的孩子或孫子，有誰遺傳到你的才藝？」</p>
+    </div>
+    <button class="btn ghost show-ans"><i class="fa-solid fa-eye"></i> 公布答案</button>
   </div>
   <span class="pagenum"></span>
 </section>
@@ -862,6 +961,16 @@ themeBtn.onclick = () => {
 document.querySelectorAll("#checklist input").forEach((c, i) => {
   try { c.checked = localStorage.getItem("chk" + i) === "1"; } catch (e) {}
   c.onchange = () => { try { localStorage.setItem("chk" + i, c.checked ? "1" : "0"); } catch (e) {} };
+});
+
+// 破冰問答：點選項或「公布答案」都會揭曉
+document.querySelectorAll(".quiz").forEach(q => {
+  const reveal = () => {
+    q.classList.add("done");
+    q.querySelectorAll(".opt").forEach(o => o.classList.add(o.dataset.ok ? "right" : "wrong"));
+  };
+  q.querySelectorAll(".opt").forEach(o => o.addEventListener("click", reveal));
+  q.querySelector(".show-ans").addEventListener("click", reveal);
 });
 
 // 動態歌詞示範（〈兩隻老虎〉傳統兒歌）
